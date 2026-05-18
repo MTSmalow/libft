@@ -1,17 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 10:18:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/18 11:51:22 by edmedeir         ###   ########.fr       */
+/*   Created: 2026/05/18 11:44:21 by edmedeir          #+#    #+#             */
+/*   Updated: 2026/05/18 11:51:05 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include<libft.h>
 
-# include<unistd.h>
-#endif
+void	*ft_memcpy(void *des, const void *or, size_t len)
+{
+	unsigned char	*p;
+	unsigned char	*o;
+	size_t			i;
+
+	if (!des && !or)
+		return (des);
+	p = (unsigned char *)des;
+	o = (unsigned char *)or;
+	i = 0;
+	while (i < len)
+	{
+		p[i] = o[i];
+		i++;
+	}
+	return (des);
+}

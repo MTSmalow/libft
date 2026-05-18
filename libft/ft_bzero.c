@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/18 10:18:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/18 11:51:22 by edmedeir         ###   ########.fr       */
+/*   Created: 2026/05/18 10:54:49 by edmedeir          #+#    #+#             */
+/*   Updated: 2026/05/18 11:00:26 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include<libft.h>
 
-# include<unistd.h>
-#endif
+void	ft_bzero(void *ptr, size_t len)
+{
+	unsigned char	*p;
+	size_t			i;
+
+	p = (unsigned char *)ptr;
+	i = 0;
+	while (i < len)
+	{
+		p[i] = 0;
+		i++;
+	}
+}
