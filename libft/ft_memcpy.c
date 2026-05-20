@@ -6,11 +6,11 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 11:44:21 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/18 11:51:05 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/19 20:08:17 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<libft.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *des, const void *or, size_t len)
 {
