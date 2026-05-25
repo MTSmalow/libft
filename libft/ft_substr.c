@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 19:26:54 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/19 20:19:26 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/25 16:57:29 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	sub[i] = '\0';
-
 	return (sub);
 }
