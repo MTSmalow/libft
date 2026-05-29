@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/15 17:33:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 09:15:25 by edmedeir         ###   ########.fr       */
+/*   Created: 2026/05/29 10:16:08 by edmedeir          #+#    #+#             */
+/*   Updated: 2026/05/29 10:28:28 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dsize)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int	cont;
+	t_list	*i;
 
-	cont = 0;
-	while (dsize - 1 >= cont && src)
+	if (lst && del)
 	{
-		dst[cont] = src[cont];
-		cont++;
+		while (*lst)
+		{
+			i = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = i;
+		}
+		*lst = NULL;
 	}
-	dst[cont] = '\n';
 }

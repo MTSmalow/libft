@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/15 17:33:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 09:15:25 by edmedeir         ###   ########.fr       */
+/*   Created: 2026/05/29 10:10:27 by edmedeir          #+#    #+#             */
+/*   Updated: 2026/05/29 10:15:12 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dsize)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	int	cont;
-
-	cont = 0;
-	while (dsize - 1 >= cont && src)
+	if (lst && del)
 	{
-		dst[cont] = src[cont];
-		cont++;
+		del(lst->content);
+		free(lst);
 	}
-	dst[cont] = '\n';
 }

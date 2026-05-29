@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/15 17:33:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 09:15:25 by edmedeir         ###   ########.fr       */
+/*   Created: 2026/05/29 09:38:25 by edmedeir          #+#    #+#             */
+/*   Updated: 2026/05/29 09:42:05 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dsize)
+int	ft_lstsize(t_list *lst)
 {
-	int	cont;
+	size_t	i;
 
-	cont = 0;
-	while (dsize - 1 >= cont && src)
+	i = 0;
+	while (lst)
 	{
-		dst[cont] = src[cont];
-		cont++;
+		lst = lst->next;
+		i++;
 	}
-	dst[cont] = '\n';
+	return (i);
 }
