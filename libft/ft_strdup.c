@@ -6,13 +6,13 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 09:17:35 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/26 09:44:33 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/29 12:15:00 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int		cont;
 	char	*ptr;

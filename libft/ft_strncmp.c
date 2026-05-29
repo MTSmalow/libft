@@ -6,21 +6,23 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 20:06:39 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/25 16:57:16 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/29 12:16:04 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *str1, char *str2, int siz)
+#include "libft.h"
+
+int	ft_strncmp(const char *str1, const char *str2, size_t siz)
 {
-	int	cont;
+	size_t	cont;
 
 	cont = 0;
-	while (cont + 1 <= siz)
+	while (cont < siz && str1[cont] && str2[cont])
 	{
 		if (str1[cont] == str2[cont])
 			cont++;
 		else
 			return (str1[cont] - str2[cont]);
-		return (0);
 	}
+	return (0);
 }
