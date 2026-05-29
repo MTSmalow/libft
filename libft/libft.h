@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 10:18:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 12:16:04 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/29 13:17:08 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char			*ft_strdup(const char *src);
 
 char			*ft_strjoin(char const *s1, char const *s2);
 
-unsigned int		ft_strlcat(char *dest, const char *src, unsigned int size);
+unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size);
 
 size_t			ft_strlcpy(char *dst, const char *src, size_t dsize);
 
@@ -80,7 +80,7 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 int				ft_strncmp(const char *str1, const char *str2, size_t siz);
 
-char	*ft_strnstr(const char *big, const char *little, size_t len);
+char			*ft_strnstr(const char *big, const char *little, size_t len);
 
 char			*ft_strrchr(const char *s, int c);
 
@@ -109,5 +109,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void*));
 
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));
+
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

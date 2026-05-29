@@ -6,13 +6,13 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 19:38:33 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/25 16:57:40 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/29 13:10:45 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char str)
+int	ft_toupper(int c)
 {
-	if (!(str >= 'A' && str <= 'Z'))
-		str = str - 32;
-	return (str);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

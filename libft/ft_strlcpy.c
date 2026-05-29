@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 17:33:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 12:15:43 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/05/29 13:10:04 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 
 	cont = 0;
 	if (dsize == 0)
-    return (ft_strlen(src));
-	while (dsize - 1 >= cont && src[cont])
+		return (ft_strlen(src));
+	while (cont < dsize - 1 && src[cont])
 	{
 		dst[cont] = src[cont];
 		cont++;
