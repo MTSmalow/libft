@@ -12,7 +12,7 @@ SRCS	= ft_substr.c ft_strrchr.c ft_strlen.c ft_strdup.c ft_strjoin.c \
 			ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 			ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_striteri.c \
 			ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_strnstr.c ft_strmapi.c \
-			ft_itoa.c ft_split.c ft_strtrim.c
+			ft_itoa.c ft_split.c ft_strtrim.c ft_isalnum.c
 
 OBJS	= $(SRCS:.c=.o)
 

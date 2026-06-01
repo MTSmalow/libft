@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 10:18:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 13:17:08 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/01 13:28:53 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void			*ft_calloc(size_t count, size_t size);
 int				ft_isalpha(int c);
 
 int				ft_isascii(int c);
+
+int				ft_isalnum(int c);
 
 int				ft_isdigit(int c);
 
