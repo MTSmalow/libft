@@ -1,82 +1,156 @@
 *Este projeto foi criado como parte do currículo da 42 por edmedeir.*
 
----
 
-# Libft — Sua primeira biblioteca própria em C
+# libft
+
+Uma biblioteca estática em C que reimplementa funções essenciais da libc e adiciona utilitários próprios para uso nos projetos futuros do currículo da 42.
+
 
 ## Descrição
 
-A **libft** é uma biblioteca estática em C desenvolvida como projeto fundamental do currículo da 42. O objetivo é reimplementar diversas funções da libc padrão e criar funções utilitárias adicionais, construindo uma base sólida de conhecimento sobre manipulação de memória, strings e estruturas de dados em C.
+A **libft** é a base de toda a jornada na 42. Em vez de depender da libc padrão, você constrói suas próprias versões das funções — entendendo de verdade como manipulação de memória, strings e estruturas de dados funcionam em C.
 
-A biblioteca é compilada como `libft.a` e pode ser reutilizada em projetos futuros da escola.
+O resultado é um arquivo `libft.a` que pode ser linkado em qualquer projeto futuro da escola.
 
-### Funções implementadas
 
-**Parte 1 — Funções da libc** (reimplementações com prefixo `ft_`):
+## Referência da API
 
-| Função | Descrição |
-|---|---|
-| `ft_isalpha` | Verifica se o caractere é alfabético |
-| `ft_isdigit` | Verifica se o caractere é um dígito |
-| `ft_isalnum` | Verifica se o caractere é alfanumérico |
-| `ft_isascii` | Verifica se o caractere pertence à tabela ASCII |
-| `ft_isprint` | Verifica se o caractere é imprimível |
-| `ft_strlen` | Retorna o tamanho de uma string |
-| `ft_memset` | Preenche uma região de memória com um byte |
-| `ft_bzero` | Zera uma região de memória |
-| `ft_memcpy` | Copia uma região de memória |
-| `ft_memmove` | Copia memória com suporte a sobreposição |
-| `ft_strlcpy` | Copia string com limite de tamanho |
-| `ft_strlcat` | Concatena string com limite de tamanho |
-| `ft_toupper` | Converte caractere para maiúsculo |
-| `ft_tolower` | Converte caractere para minúsculo |
-| `ft_strchr` | Busca a primeira ocorrência de um caractere |
-| `ft_strrchr` | Busca a última ocorrência de um caractere |
-| `ft_strncmp` | Compara dois strings até n caracteres |
-| `ft_memchr` | Busca um byte em uma região de memória |
-| `ft_memcmp` | Compara duas regiões de memória |
-| `ft_strnstr` | Busca uma substring dentro de outra string |
-| `ft_atoi` | Converte string para inteiro |
-| `ft_calloc` | Aloca memória zerando o conteúdo |
-| `ft_strdup` | Duplica uma string alocando memória |
+### Classificação de caracteres
 
-**Parte 2 — Funções adicionais:**
+```c
+int  ft_isalpha(int c);       // letra alfabética?
+int  ft_isdigit(int c);       // dígito decimal?
+int  ft_isalnum(int c);       // alfanumérico?
+int  ft_isascii(int c);       // pertence ao ASCII (0–127)?
+int  ft_isprint(int c);       // caractere imprimível?
+```
 
-| Função | Descrição |
-|---|---|
-| `ft_substr` | Extrai uma substring de uma string |
-| `ft_strjoin` | Concatena duas strings em uma nova |
-| `ft_strtrim` | Remove caracteres do início e fim de uma string |
-| `ft_split` | Divide uma string em array usando um delimitador |
-| `ft_itoa` | Converte inteiro para string |
-| `ft_strmapi` | Aplica função a cada caractere, retornando nova string |
-| `ft_striteri` | Aplica função a cada caractere da string (in-place) |
-| `ft_putchar_fd` | Escreve um caractere em um file descriptor |
-| `ft_putstr_fd` | Escreve uma string em um file descriptor |
-| `ft_putendl_fd` | Escreve uma string seguida de `\n` em um fd |
-| `ft_putnbr_fd` | Escreve um inteiro em um file descriptor |
+Retornam `1` se verdadeiro, `0` caso contrário.
 
-**Parte 3 — Funções de lista encadeada:**
 
-| Função | Descrição |
-|---|---|
-| `ft_lstnew` | Cria um novo nó |
-| `ft_lstadd_front` | Adiciona nó no início da lista |
-| `ft_lstsize` | Retorna o número de nós da lista |
-| `ft_lstlast` | Retorna o último nó da lista |
-| `ft_lstadd_back` | Adiciona nó no final da lista |
-| `ft_lstdelone` | Libera um nó (sem liberar o próximo) |
-| `ft_lstclear` | Libera todos os nós da lista |
-| `ft_lstiter` | Aplica uma função a cada nó |
-| `ft_lstmap` | Cria nova lista aplicando função a cada nó |
+### Conversão de caracteres
 
----
+```c
+int  ft_toupper(int c);       // converte para maiúsculo
+int  ft_tolower(int c);       // converte para minúsculo
+```
+
+
+### Manipulação de memória
+
+```c
+void  *ft_memset(void *b, int c, size_t len);
+void   ft_bzero(void *s, size_t n);
+void  *ft_memcpy(void *dst, const void *src, size_t n);
+void  *ft_memmove(void *dst, const void *src, size_t len);
+void  *ft_memchr(const void *s, int c, size_t n);
+int    ft_memcmp(const void *s1, const void *s2, size_t n);
+void  *ft_calloc(size_t count, size_t size);
+```
+
+
+### Manipulação de strings
+
+```c
+size_t        ft_strlen(const char *s);
+char         *ft_strchr(const char *s, int c);
+char         *ft_strrchr(const char *s, int c);
+int           ft_strncmp(const char *s1, const char *s2, size_t n);
+char         *ft_strnstr(const char *big, const char *little, size_t len);
+size_t        ft_strlcpy(char *dst, const char *src, size_t dsize);
+unsigned int  ft_strlcat(char *dest, const char *src, unsigned int size);
+char         *ft_strdup(const char *src);
+```
+
+
+### Conversão numérica
+
+```c
+int   ft_atoi(char *str);    // string → int
+char *ft_itoa(int n);        // int → string (malloc)
+```
+
+
+### Funções adicionais de string
+
+```c
+char  *ft_substr(char const *s, unsigned int start, size_t len);
+// Retorna uma substring de 's' começando em 'start' com no máximo 'len' caracteres.
+
+char  *ft_strjoin(char const *s1, char const *s2);
+// Concatena 's1' e 's2' em uma nova string alocada.
+
+char  *ft_strtrim(char const *s1, char const *set);
+// Remove do início e fim de 's1' qualquer caractere presente em 'set'.
+
+char **ft_split(char const *s, char c);
+// Divide 's' usando 'c' como delimitador. Retorna array NULL-terminado.
+
+char  *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+// Aplica 'f' a cada caractere de 's', retorna nova string com os resultados.
+
+void   ft_striteri(char *s, void (*f)(unsigned int, char *));
+// Aplica 'f' a cada caractere de 's' passando o índice e o endereço do char.
+```
+
+
+### Saída em file descriptor
+
+```c
+void  ft_putchar_fd(char c, int fd);      // escreve um caractere
+void  ft_putstr_fd(char *s, int fd);      // escreve uma string
+void  ft_putendl_fd(char *s, int fd);     // escreve string + '\n'
+void  ft_putnbr_fd(int n, int fd);        // escreve um inteiro
+```
+
+
+### Lista encadeada
+
+A biblioteca define a estrutura `t_list` para listas simplesmente encadeadas:
+
+```c
+typedef struct s_list
+{
+    void          *content;
+    struct s_list *next;
+}   t_list;
+```
+
+Funções disponíveis:
+
+```c
+t_list *ft_lstnew(void *content);
+// Aloca e retorna um novo nó com 'content' e next = NULL.
+
+void    ft_lstadd_front(t_list **lst, t_list *new);
+// Insere 'new' no início da lista.
+
+void    ft_lstadd_back(t_list **lst, t_list *new);
+// Insere 'new' no final da lista.
+
+int     ft_lstsize(t_list *lst);
+// Retorna o número de nós da lista.
+
+t_list *ft_lstlast(t_list *lst);
+// Retorna o último nó da lista.
+
+void    ft_lstdelone(t_list *lst, void (*del)(void *));
+// Libera o conteúdo do nó com 'del' e depois libera o nó (não o próximo).
+
+void    ft_lstclear(t_list **lst, void (*del)(void *));
+// Libera todos os nós da lista usando 'del', e define *lst como NULL.
+
+void    ft_lstiter(t_list *lst, void (*f)(void *));
+// Aplica 'f' ao conteúdo de cada nó.
+
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+// Cria nova lista aplicando 'f' a cada nó. Usa 'del' em caso de falha.
+```
+
 
 ## Instruções
 
 ### Compilação
-
-Clone o repositório e compile a biblioteca com:
 
 ```bash
 git clone <url-do-repositorio>
@@ -84,48 +158,44 @@ cd libft
 make
 ```
 
-Isso gera o arquivo `libft.a` na raiz do repositório.
+Gera `libft.a` na raiz do repositório.
 
 ### Regras do Makefile
 
-```bash
-make        # compila a biblioteca (libft.a)
-make clean  # remove os arquivos objeto (.o)
-make fclean # remove os .o e o libft.a
-make re     # executa fclean + make
+```
+make          compila a biblioteca
+make clean    remove os arquivos .o
+make fclean   remove os .o e o libft.a
+make re       fclean + make
 ```
 
-### Uso em outro projeto
+### Integrando em outro projeto
 
-Copie `libft.a` e `libft.h` para o diretório do seu projeto e inclua o header:
+Copie `libft.a` e `libft.h` para o diretório do seu projeto:
 
 ```c
 #include "libft.h"
 ```
 
-Compile linkando a biblioteca:
-
 ```bash
 cc -Wall -Wextra -Werror main.c -L. -lft -o programa
 ```
 
----
 
 ## Recursos
 
-### Referências
-
-- [Manual das funções libc — man7.org](https://man7.org/linux/man-pages/)
-- [The C Programming Language — Kernighan & Ritchie](https://en.wikipedia.org/wiki/The_C_Programming_Language)
-- [Documentação GNU C Library](https://www.gnu.org/software/libc/manual/)
+- [man7.org — Linux man pages](https://man7.org/linux/man-pages/)
+- [GNU C Library — documentação oficial](https://www.gnu.org/software/libc/manual/)
 - [Diferenças entre glibc e BSD libc](https://wiki.musl-libc.org/functional-differences-from-glibc.html)
-- [Understanding Linked Lists in C](https://www.learn-c.org/en/Linked_lists)
+- [Learn-C — Linked Lists](https://www.learn-c.org/en/Linked_lists)
+- [The C Programming Language — Kernighan & Ritchie](https://en.wikipedia.org/wiki/The_C_Programming_Language)
 
 ### Uso de IA
 
-A IA (Claude) foi utilizada de forma pontual e como suporte ao aprendizado, não como fonte de respostas diretas. Especificamente:
+A IA (Claude) foi utilizada pontualmente como suporte, não como fonte de respostas diretas:
 
-- **Dúvidas conceituais**: consultas sobre comportamento esperado de funções como `memmove` e `strlcat`, sem solicitar implementações prontas.
-- **Revisão de entendimento**: validação de raciocínio sobre gestão de memória e ponteiros.
+- **README**: estrutura e escrita deste documento.
+- **Dúvidas conceituais**: comportamento esperado de funções como `memmove` e `strlcat`, sem solicitar implementações.
+- **Revisão de raciocínio**: validação de entendimento sobre gestão de memória e ponteiros.
 
-As implementações das funções foram desenvolvidas de forma independente, com base nas man pages e no entendimento construído durante o processo.
+As implementações foram desenvolvidas de forma independente, com base nas man pages.
