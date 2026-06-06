@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 11:28:04 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/26 11:30:27 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/06 11:09:56 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isdigit(int d)
 	return (d >= '0' && d <= '9');
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	res;
 	int	s;

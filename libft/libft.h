@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 10:18:37 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/06/01 13:28:53 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/06 11:10:42 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_split_next
 	size_t	length;
 }				t_split_next;
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 
 void			ft_bzero(void *s, size_t n);
 

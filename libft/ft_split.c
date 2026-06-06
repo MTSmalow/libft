@@ -6,14 +6,13 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 09:09:09 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 09:14:41 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/06 11:23:07 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char
-	**ft_alloc_split(char const *s, char c)
+static char	**ft_alloc_split(char const *s, char c)
 {
 	size_t	i;
 	char	**split;
@@ -23,11 +22,11 @@ static char
 	total = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			total++;
 		i++;
 	}
-	split = (char **)malloc(sizeof(s) * (total + 2));
+	split = (char **)malloc(sizeof(char *) * (total + 1));
 	if (!split)
 		return (0);
 	return (split);
@@ -97,6 +96,9 @@ char
 	if (!(split))
 		return (0);
 	if (!ft_split_by_char(split, s, c))
+	{
+		free(split);
 		return (0);
+	}
 	return (split);
 }

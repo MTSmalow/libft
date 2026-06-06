@@ -6,7 +6,7 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 09:44:14 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/26 11:38:33 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/06 11:17:57 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t num, size_t size)
 	size_t	i;
 
 	if (num == 0 || size == 0)
-		return (malloc(1));
+		return (malloc(0));
 	cont = num * size;
 	if (size != 0 && cont / size != num)
 		return (0);
