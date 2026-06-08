@@ -6,58 +6,50 @@
 /*   By: edmedeir <edmedeir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 09:16:10 by edmedeir          #+#    #+#             */
-/*   Updated: 2026/05/29 09:18:43 by edmedeir         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:20:05 by edmedeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_abs(int nbr)
+static int	count_digits(int n)
 {
-	if (nbr < 0)
-		return (-nbr);
-	return (nbr);
-}
+	int	count;
 
-static void
-	ft_strrev(char *str)
-{
-	size_t	length;
-	size_t	i;
-	char	tmp;
-
-	length = ft_strlen(str);
-	i = 0;
-	while (i < length / 2)
-	{
-		tmp = str[i];
-		str[i] = str[length - i - 1];
-		str[length - i - 1] = tmp;
-		i++;
-	}
-}
-
-char
-	*ft_itoa(int n)
-{
-	char	*str;
-	int		is_neg;
-	size_t	length;
-
-	is_neg = (n < 0);
-	str = ft_calloc(11 + is_neg, sizeof(*str));
-	if (!(str))
-		return (NULL);
-	if (n == 0)
-		str[0] = '0';
-	length = 0;
+	count = 0;
+	if (n <= 0)
+		count = 1;
 	while (n != 0)
 	{
-		str[length++] = '0' + ft_abs(n % 10);
-		n = (n / 10);
+		n /= 10;
+		count++;
 	}
-	if (is_neg)
-		str[length] = '-';
-	ft_strrev(str);
+	return (count);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+	long	nb;
+
+	nb = (long)n;
+	len = count_digits(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (nb < 0)
+	{
+		str[0] = '-';
+		nb = -nb;
+	}
+	if (nb == 0)
+		str[0] = '0';
+	while (nb > 0)
+	{
+		str[--len] = (nb % 10) + '0';
+		nb /= 10;
+	}
 	return (str);
 }
