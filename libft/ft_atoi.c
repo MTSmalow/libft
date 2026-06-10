@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-int	ft_isdigit(int d)
-{
-	return (d >= '0' && d <= '9');
-}
-
 int	ft_atoi(const char *str)
 {
 	int	res;
